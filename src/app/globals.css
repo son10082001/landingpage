@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #00091f;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #00091f;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.hero-swiper .swiper-pagination {
+  bottom: max(1.25rem, env(safe-area-inset-bottom)) !important;
+  z-index: 20;
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.525rem 0.575rem;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  opacity: 1;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
