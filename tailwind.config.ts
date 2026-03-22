@@ -1,3 +1,4 @@
+import { heroui } from '@heroui/theme';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
@@ -147,6 +148,7 @@ const config: Config = {
     },
   },
   plugins: [
+    heroui(),
     require('tailwindcss-gradient-border'),
     plugin(({ addUtilities }) => {
       addUtilities({
