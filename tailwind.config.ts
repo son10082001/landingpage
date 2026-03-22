@@ -116,7 +116,8 @@ const config: Config = {
       },
       backgroundImage: {
         gradientPrimary: 'linear-gradient(274deg, #D5FF80 0%, #19C1FF 50%, #6040BE 100%)',
-        heroOverlay: 'radial-gradient(25.39% 50.39% at 50% 50%, rgba(0, 9, 31, 0.70) 0%, rgba(0, 9, 31, 0.35) 100%)',
+        heroOverlay:
+          'radial-gradient(ellipse 120% 80% at 70% 20%, rgba(251, 191, 36, 0.18) 0%, transparent 45%), radial-gradient(ellipse 90% 70% at 15% 85%, rgba(34, 211, 238, 0.12) 0%, transparent 50%), radial-gradient(25.39% 50.39% at 50% 50%, rgba(0, 9, 31, 0.72) 0%, rgba(15, 23, 42, 0.4) 100%)',
         partnerOverlay: 'linear-gradient(180deg, rgba(96, 64, 190, 0.00) 0%, #6040BE 100%)',
         smOverlay:
           'radial-gradient(141.42% 141.42% at 0% 0%, rgba(250, 250, 250, 0.20) 0%, rgba(246, 246, 246, 0.00) 100%)',

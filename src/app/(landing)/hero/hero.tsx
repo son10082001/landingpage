@@ -37,13 +37,7 @@ const slides: SlideBase[] = [
   },
 ];
 
-function VideoBackdrop({
-  src,
-  isActive,
-}: {
-  src: string;
-  isActive: boolean;
-}) {
+function VideoBackdrop({ src, isActive }: { src: string; isActive: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   const syncPlayback = useCallback(() => {
@@ -78,7 +72,19 @@ const Hero = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section className='relative min-h-svh w-full overflow-hidden bg-[#00091f] lg:min-h-screen'>
+    <section className='relative min-h-svh w-full overflow-hidden bg-gradient-to-br from-[#020617] via-[#0a1628] to-[#051a2e] lg:min-h-screen'>
+      <div
+        className='-left-1/4 pointer-events-none absolute top-1/4 h-[min(80vw,520px)] w-[min(80vw,520px)] rounded-full bg-amber-500/25 blur-[100px]'
+        aria-hidden
+      />
+      <div
+        className='-right-1/4 pointer-events-none absolute bottom-1/3 h-[min(70vw,480px)] w-[min(70vw,480px)] rounded-full bg-cyan-500/20 blur-[100px]'
+        aria-hidden
+      />
+      <div
+        className='-translate-x-1/2 pointer-events-none absolute top-0 left-1/2 h-64 w-[120%] bg-gradient-to-b from-violet-600/15 to-transparent blur-2xl'
+        aria-hidden
+      />
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect='fade'
@@ -91,12 +97,22 @@ const Hero = () => {
         pagination={{
           clickable: true,
           bulletClass:
-            'hero-bullet inline-block h-2 w-2 rounded-full bg-white/35 transition-all duration-300 md:h-2.5 md:w-2.5',
-          bulletActiveClass: '!w-8 !bg-amber-400 !opacity-100',
+            'hero-bullet inline-block h-2 w-2 rounded-full bg-white/30 ring-1 ring-white/20 transition-all duration-300 md:h-2.5 md:w-2.5',
+          bulletActiveClass:
+            '!w-8 !max-h-2.5 !rounded-full !bg-gradient-to-r !from-amber-400 !via-yellow-300 !to-cyan-400 !opacity-100 !shadow-[0_0_16px_rgba(251,191,36,0.55)] md:!max-h-3',
         }}
         onSlideChange={(s) => setActive(s.realIndex)}
         className='hero-swiper h-[100svh] min-h-[560px] w-full'
       >
+        <SwiperSlide className='!h-full'>
+          <div className='relative h-full min-h-[100svh] w-full'>
+            <VideoBackdrop src='/video-wc2.mp4' isActive={active === 2} />
+            <div className='absolute inset-0 bg-gradient-to-l from-[#020617]/90 via-cyan-950/40 to-transparent' />
+            <div className='absolute inset-0 bg-gradient-to-t from-[#020617]/88 via-amber-950/15 to-cyan-950/30' />
+            <div className='absolute inset-0 bg-gradient-to-tr from-transparent via-fuchsia-600/10 to-amber-500/10' />
+            <SlideCopy slide={slides[2]} emphasizeCta />
+          </div>
+        </SwiperSlide>
         <SwiperSlide className='!h-full'>
           <div className='relative h-full min-h-[100svh] w-full'>
             <Image
@@ -107,8 +123,8 @@ const Hero = () => {
               priority
               sizes='100vw'
             />
-            <div className='absolute inset-0 bg-gradient-to-t from-[#00091f]/95 via-[#00091f]/45 to-[#00091f]/25' />
-            <div className='absolute inset-0 bg-heroOverlay opacity-90' />
+            <div className='absolute inset-0 bg-gradient-to-t from-[#020617]/92 via-indigo-950/50 to-amber-900/20' />
+            <div className='absolute inset-0 bg-heroOverlay opacity-95' />
             <SlideCopy slide={slides[0]} />
           </div>
         </SwiperSlide>
@@ -116,18 +132,9 @@ const Hero = () => {
         <SwiperSlide className='!h-full'>
           <div className='relative h-full min-h-[100svh] w-full'>
             <VideoBackdrop src='/video-wc1.mp4' isActive={active === 1} />
-            <div className='absolute inset-0 bg-gradient-to-r from-[#00091f]/90 via-[#00091f]/55 to-transparent' />
-            <div className='absolute inset-0 bg-gradient-to-t from-[#00091f]/85 via-transparent to-[#00091f]/30' />
+            <div className='absolute inset-0 bg-gradient-to-r from-[#020617]/92 via-blue-950/55 to-violet-600/5' />
+            <div className='absolute inset-0 bg-gradient-to-t from-[#020617]/86 via-transparent to-amber-900/25' />
             <SlideCopy slide={slides[1]} />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide className='!h-full'>
-          <div className='relative h-full min-h-[100svh] w-full'>
-            <VideoBackdrop src='/video-wc2.mp4' isActive={active === 2} />
-            <div className='absolute inset-0 bg-gradient-to-l from-[#00091f]/88 via-[#00091f]/45 to-transparent' />
-            <div className='absolute inset-0 bg-gradient-to-t from-[#00091f]/90 via-[#00091f]/25 to-[#00091f]/35' />
-            <SlideCopy slide={slides[2]} emphasizeCta />
           </div>
         </SwiperSlide>
       </Swiper>
@@ -153,7 +160,7 @@ function SlideCopy({
       <div className='pointer-events-auto flex max-w-[920px] flex-col items-center md:items-start'>
         {slide.tagline ? (
           <motion.p
-            className='mb-3 font-medium text-amber-300/95 text-xs uppercase tracking-[0.2em] md:text-sm'
+            className='mb-3 bg-gradient-to-r from-amber-200 via-yellow-200 to-cyan-200 bg-clip-text font-semibold text-transparent text-xs uppercase tracking-[0.2em] drop-shadow-[0_0_24px_rgba(251,191,36,0.35)] md:text-sm'
             variants={textVariants}
           >
             {slide.tagline}
@@ -163,7 +170,7 @@ function SlideCopy({
           className='font-bold text-2xl leading-tight md:text-4xl lg:text-5xl lg:leading-[1.15]'
           variants={textVariants}
         >
-          <span className='bg-gradient-to-r from-white via-white to-white/85 bg-clip-text text-transparent'>
+          <span className='bg-gradient-to-r from-white via-amber-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-[0_2px_32px_rgba(34,211,238,0.2)]'>
             {slide.title}
           </span>
         </motion.h1>
@@ -172,8 +179,8 @@ function SlideCopy({
             variant={emphasizeCta ? 'solid' : 'outline'}
             className={
               emphasizeCta
-                ? 'border-0 bg-gradient-to-r from-amber-500 to-amber-600 text-black shadow-amber-900/40 shadow-lg hover:brightness-110'
-                : 'border-white/80 text-white hover:bg-white/10'
+                ? 'border-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-cyan-400 text-black shadow-[0_8px_32px_rgba(251,191,36,0.45),0_0_0_1px_rgba(255,255,255,0.15)_inset] hover:brightness-110'
+                : 'border-amber-300/50 text-white shadow-[0_0_24px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-gradient-to-r hover:from-cyan-500/15 hover:to-amber-500/10'
             }
             onClick={() => {
               if (QH88_CTA.startsWith('http')) {

@@ -161,7 +161,7 @@ const Navbar = () => {
             src="/images/qh88-logo.png"
             width={148}
             height={36}
-            className="h-9 w-auto"
+            className="h-9 w-auto min-w-16"
             priority
             alt="QH88"
           />
