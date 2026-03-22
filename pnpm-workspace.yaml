@@ -1,0 +1,4 @@
+ignoredBuiltDependencies:
+  - '@biomejs/biome'
+  - '@heroui/shared-utils'
+  - sharp
