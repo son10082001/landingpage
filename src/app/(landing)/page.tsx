@@ -1,3 +1,4 @@
+import AdPopupModal from './ad-popup-modal';
 import Hero from './hero';
 import LandingSections from './landing-sections';
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div className='bg-[url(/images/home/background.webp)] bg-center bg-cover'>
       <Hero />
       <LandingSections />
+      <AdPopupModal />
     </div>
   );
 }

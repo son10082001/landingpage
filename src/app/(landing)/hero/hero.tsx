@@ -119,6 +119,15 @@ const Hero = () => {
         </SwiperSlide>
         <SwiperSlide className="!h-full">
           <div className="relative h-full min-h-[100svh] w-full">
+            <VideoBackdrop src="/video-wc1.mp4" isActive={active === 1} />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#020617]/90 via-cyan-950/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/88 via-amber-950/15 to-cyan-950/30" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-fuchsia-600/10 to-amber-500/10" />
+            <SlideCopy slide={slides[2]} emphasizeCta />
+          </div>
+        </SwiperSlide>{" "}
+        <SwiperSlide className="!h-full">
+          <div className="relative h-full min-h-[100svh] w-full">
             <Image
               src="/images/bruno.png"
               alt="Bruno Fernandes — QH88"
@@ -130,15 +139,6 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/92 via-indigo-950/50 to-amber-900/20" />
             <div className="absolute inset-0 bg-heroOverlay opacity-95" />
             <SlideCopy slide={slides[0]} />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="!h-full">
-          <div className="relative h-full min-h-[100svh] w-full">
-            <VideoBackdrop src="/video-wc1.mp4" isActive={active === 2} />
-            <div className="absolute inset-0 bg-gradient-to-l from-[#020617]/90 via-cyan-950/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/88 via-amber-950/15 to-cyan-950/30" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-fuchsia-600/10 to-amber-500/10" />
-            <SlideCopy slide={slides[2]} emphasizeCta />
           </div>
         </SwiperSlide>
       </Swiper>
