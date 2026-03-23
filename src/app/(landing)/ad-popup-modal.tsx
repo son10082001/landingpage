@@ -70,7 +70,7 @@ export default function AdPopupModal() {
           </button>
         </div>
 
-        <div className="relative aspect-[16/9] w-full">
+        <div className="relative aspect-[16/9] h-auto min-h-[300px] w-full">
           <Image
             src={ad.imageSrc}
             alt={ad.title}
